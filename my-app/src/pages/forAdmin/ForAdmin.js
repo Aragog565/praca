@@ -13,6 +13,7 @@ export function ForAdmin() {
         try{
             const res = await post(`categories`, inputs);
             console.log(res)
+            window.location.href = '/';
             // updateData(res.data.product)
         }catch(e){
             console.log(e)
