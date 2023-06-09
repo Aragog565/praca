@@ -71,7 +71,7 @@ console.log(auth)
           }
           <Nav.Link className='but' onClick={onAuthChange}>{getAuthLabel() ? 'Zaloguj' : 'Wyloguj'}</Nav.Link>
           
-          {auth.role.id!=1 ? null :<Nav.Link className='but' href="/ForAdmin">Panel ADMINA</Nav.Link>}
+          {auth?.role.id!=1 ? null :<Nav.Link className='but' href="/ForAdmin">Panel ADMINA</Nav.Link>}
           <Nav.Link className='margin' ></Nav.Link>
         </nav>
         <Outlet />
