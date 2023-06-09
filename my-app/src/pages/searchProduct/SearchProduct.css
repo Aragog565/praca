@@ -1,0 +1,11 @@
+#searchProduct{
+    width: 80%;
+    margin: 2%;
+
+}
+#cardSearch{
+    display: flex;
+}
+#imgSearch{
+    min-width: 40%;
+}

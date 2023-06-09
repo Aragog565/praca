@@ -1,0 +1,46 @@
+
+.base{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--m-color-desk,#b7c8d3);
+    width: 100%;
+}
+.dropend>button{
+    margin: 13px 0px;
+    border-width: 1px;
+}
+.wiad{
+    display: flex;
+    flex-direction: row;
+}
+.wiad>img{
+    width: 100px;
+}
+#mLISTgf{
+    display: flex;
+    flex-direction: row;
+}
+nav{
+    width: 20%;
+    
+    background: transparent linear-gradient(180deg, #0080FF 0%, #1280ED 14%, #7182B1 100%) 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: column;
+    
+}
+img{
+    width: 100%;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+}
+.but{
+    margin: 20px 12px;
+    border-width: 1px; 
+}
+.margin{
+    min-height: 50vh;
+}

@@ -1,0 +1,32 @@
+.ulubione{
+    width: 60%;
+    padding: 2%;
+    margin-left: 10%;
+}
+.card{
+    padding: 2%;
+    width: 100%;
+    min-width: 100%;
+    margin-top: 2%;
+}
+#Wcard{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+#kat-sort{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#CHALL{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#CHALL>label{
+    display: flex;
+}
+#img{
+    max-width: 30%;
+}

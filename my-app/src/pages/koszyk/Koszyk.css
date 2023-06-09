@@ -1,0 +1,46 @@
+.test{
+    width: 100%;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+}
+.cKoszyk>label{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between
+}
+.usun{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.num{
+    display: flex;
+    flex-direction: row;
+    margin: 0 25%;
+}
+
+.szer{
+    width: 40%;
+}
+.wart{
+    display: flex;
+    flex-direction: row;
+
+}
+.platnosc{
+    position: sticky;
+    top: 77px;
+}
+.srod{
+    display: flex;
+    justify-content: space-around;
+}
+.space{
+    margin-bottom: 200px;
+}

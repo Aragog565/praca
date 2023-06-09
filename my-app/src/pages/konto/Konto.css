@@ -1,0 +1,46 @@
+.cal{
+    width: 100%;
+    
+}
+.konto{
+    width: 50%; 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 5%;
+    
+}
+#ustawienia>#ust{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#profil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+    padding: 10%;
+    margin-bottom: 2%;
+}
+#profil>img{
+    max-width: 50%;
+    border-radius: 200px;
+    
+}
+#ustawienia{
+    margin-bottom: 2%;
+}
+#myNewPhoto{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#next{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.fitInput{
+    height: 2.35rem;
+}

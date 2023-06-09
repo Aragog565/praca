@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  
+  mysql:
+    image: mysql:8
+    container_name: mysql-container
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes: 
+      - ./mysql:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-file /data/application/init.sql
+    restart: always
+    environment: 
+      MYSQL_DATABASE: forum
+      MYSQL_ROOT_PASSWORD: mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9000:8080

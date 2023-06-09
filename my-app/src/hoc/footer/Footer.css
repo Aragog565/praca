@@ -1,0 +1,25 @@
+.data{
+    width: 100%;
+    text-align: right;
+}
+.stopka{
+    background-color: var(--m-color-card,#fff);
+    padding-bottom: 6px;
+    padding-top: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+       
+}
+.witryna{
+    text-align: left;
+    width: 20%;
+    
+}
+.info{
+    text-align: left;
+    width: 30%;
+    
+}

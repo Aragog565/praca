@@ -1,0 +1,21 @@
+.card-body{
+    width: 100%;
+    
+}
+#title,#rabat{
+    display: flex;
+    font-size: 15px;
+    width: 100%;
+    margin: 0px;
+}
+#srcD{
+    height: 150px;
+
+}
+
+#promotion{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 3fr));
+    grid-gap: 1rem;
+    width: 100%;
+}

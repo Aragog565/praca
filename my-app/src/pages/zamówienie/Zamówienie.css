@@ -1,0 +1,148 @@
+
+.wypelnij{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+h2,h5{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.logo>img{
+    width: 20%;
+    margin-left: 1px;
+}
+.podz{
+    display: flex;
+    background-color: var(--m-color-card,#fff);
+    margin: 3% 0% 0% 0%;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #00000029;
+    border-radius: 15px; 
+    width: 70%;
+}
+.nisko{
+    width: 100%;
+}
+.łącz{
+    display: flex;
+    flex-direction:column;
+    align-items: center
+}
+.border1{
+    margin: 3% 0% 10% 0%;
+    
+}
+.centrum{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end 
+    
+}
+.last{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.dane{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 10%;
+}
+.dane>h4,.dane>input,.kod>input,.dane>button{
+    margin: 1%;
+    width: 70%;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.125);
+    border-width: 1px;
+    padding: 0.4rem 0.2rem;
+    color: var(--bs-body-color); 
+    
+}
+
+.dane>h4,.dostawa>h4,.płatnosc>h4,.podsum>h4{
+    border-bottom: 1px solid gray;
+    margin: 10% 0 0 0;
+}
+input::placeholder {
+    color: black;
+  }
+.zamD{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.dostawa,.płatnosc{
+    width: 70%;
+    margin-bottom: 10%;
+}
+.podsum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.mini{
+    margin: 5px;
+}
+.pod{
+    margin: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.gr{
+    
+    font-size: 16px;
+    align-items: center;
+}
+.last{
+    margin-bottom: 10px;
+    width: 100%;
+    align-items: center;
+}
+.kod{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
+
+.msrc{
+    width: 70%;
+}
+.podMsrc{
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+.productSum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.podzAlternative{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--m-color-card,#fff);
+    margin: 3% 0% 0% 0%;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #00000029;
+    border-radius: 15px;
+    width: 70%;
+}
