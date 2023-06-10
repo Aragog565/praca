@@ -12,6 +12,8 @@ import { useGet } from '../../hooks/useGet';
 import { useFavoriteProduct } from '../../hooks/useFavoriteProduct';
 import { post, put, remove } from '../../utils/Api';
 import { useCategories } from '../../hooks/useCategories';
+import { useProduct } from '../../hooks/useProduct';
+import { useBasket } from '../../hooks/useBasket';
 
 
 export function Ulubione() {
@@ -19,20 +21,19 @@ export function Ulubione() {
     const {category, errorCategory, loadingCategory} = useCategories();
     const {favoriteProduct, updateFavoriteProduct, errorFavoriteProduct, loadingFavoriteProduct, removeFavoriteProducts} = useFavoriteProduct();
     const [filterFavorite, setFilterFavorite] = useState({});
+    const {addProductToBasket,isProductInBasket , removeProductBasket} = useBasket();
+    const [number, setNumber] = useState(1);
 
-    async function removeFavoriteProduct(){
-        const toRemove =[];
-        isChecked.forEach((item,index)=>
-            {
-                if(item && favoriteProduct[index]?.id){
-                    toRemove.push(favoriteProduct[index]?.id)
-                }
-            }
-        )
-        console.log(`order`,{ids:toRemove.join(',')})
-        const res = await remove(`order`,{ids:toRemove.join(',')});
-        console.log(res)
-        removeFavoriteProducts(toRemove);
+    console.log({favoriteProduct})
+    function changeBasket(product){
+        console.log({product})
+        if(!isProductInBasket(product.id)){
+            console.log("1")
+            addProductToBasket(product.id,number)
+        }else{
+            console.log("11")
+            removeProductBasket(product.id)
+        }
     }
 
     function handleChange(event){
@@ -51,6 +52,19 @@ export function Ulubione() {
             setIsChecked(isChecked.map(() => !isChecked[isChecked.length - 1]));
         }
     } 
+
+    async function removeFavoriteProduct(){
+        const toRemove =[];
+        isChecked.forEach((item,index)=>
+            {
+                if(item && favoriteProduct[index]?.id){
+                    toRemove.push(favoriteProduct[index]?.id)
+                }
+            }
+        )
+        const res = await remove(`products/favorite`,{ids:toRemove.join(',')});
+        removeFavoriteProducts(toRemove);
+    }
 
     useEffect(() => {
         if (!loadingFavoriteProduct) {
@@ -118,7 +132,7 @@ export function Ulubione() {
                                                 <ListGroup.Item>od: {favorite.product.user.name}</ListGroup.Item>
                                                 <Card.Text className='word-break-all max-3-lines'>{favorite.product.description}</Card.Text>
                                             </ListGroup>
-                                            <Button variant="outline-danger">Dodaj do koszyka</Button>
+                                            <Button onClick={()=>changeBasket(favorite.product)} variant="outline-danger">{isProductInBasket(favorite.product.id) ?"Usuń z koszyka":"Dodaj do koszyka"}</Button>
                                         </ListGroup>
                                     </Card>
                                 )

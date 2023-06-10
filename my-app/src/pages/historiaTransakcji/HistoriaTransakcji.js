@@ -39,12 +39,13 @@ export function HistoriaTransakcji() {
     } 
 
     function handleChange(name, value){
-        setFilterOrder({})
+        // setFilterOrder({})
+        console.log(filterOrder)
         if(value==""){
             const currentTime = new Date();
             value = currentTime.toISOString();
         }
-        setFilterOrder(values => ({...values, [name]: value}))
+        setFilterOrder(values => ({ [name]: value}))
     }
 
     
@@ -143,7 +144,7 @@ export function HistoriaTransakcji() {
                             </ListGroup>
                         })}
                          <ListGroup id="g2" variant="flush">
-                            <ListGroup.Item id="g3">Razem </ListGroup.Item>
+                            <ListGroup.Item id="g3">Razem z przesyłką:</ListGroup.Item>
                             <ListGroup.Item id="g3">{order.payment} </ListGroup.Item>
                         </ListGroup>
                     </Card>

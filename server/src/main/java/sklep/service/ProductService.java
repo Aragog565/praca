@@ -151,6 +151,7 @@ public class ProductService {
         product.setName(newProductDTO.getName());
         product.setNumber(newProductDTO.getNumber());
         product.setPrice(newProductDTO.getPrice());
+        product.setPromotion((newProductDTO.getPromotion()));
         Product newProduct=productRepository.save(product);
         this.parameterService.saveParameter(newProductDTO.getParameters(), newProduct);
 

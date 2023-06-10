@@ -44,3 +44,11 @@
 #myProduct>img{
     width: 50%;
 }
+#promotion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#promotion>input{
+    width: 30%;
+}

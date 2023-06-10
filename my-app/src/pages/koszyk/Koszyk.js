@@ -119,7 +119,7 @@ export function Koszyk() {
                             </ListGroup>
                         </ListGroup>
                         <ListGroup  variant="flush">
-                            <ListGroup.Item className='srod'><Button href={auth ? '/Zamówienie' : '/logowanie'} variant="light">Złóż zamówienie</Button></ListGroup.Item>
+                            <ListGroup.Item className='srod'><Button href={auth && basket.length>0 ? '/Zamówienie' : '/Logowanie'} variant="light">{basket.length>0?"Złóż zamówienie":"koszyk jest pusty"}</Button></ListGroup.Item>
                         </ListGroup>
                         <Card.Body className='srod'>
                             <Card.Link href={`/SearchProduct`}>Kontynuuj zakupy</Card.Link>

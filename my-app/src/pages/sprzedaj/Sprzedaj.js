@@ -131,7 +131,7 @@ export function Sprzedaj() {
                             </Card.Subtitle>
                             <Card.Subtitle className="mb-2 text-muted">
                                 Kategoria
-                                <Form.Select name="categoryId" onChange={handleChange}>
+                                <Form.Select  name="categoryId" onChange={handleChange} required>
                                     <option value={null} hidden>wybierz</option>
                                     {category.length? 
                                         category.map((category) => (

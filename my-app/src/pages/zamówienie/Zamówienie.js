@@ -76,7 +76,9 @@ export function Zamówienie() {
     })
     const form = {...inputs,payment,products};
     try{
-      const res = await post(`order/`, form);
+      console.log("OK")
+      await post(`order/`, form);
+      
       window.location.href = '/HistoriaTransakcji';
     }catch(e){
       newErrors = e.response.data.message

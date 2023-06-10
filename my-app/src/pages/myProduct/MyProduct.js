@@ -17,8 +17,8 @@ export function MyProduct() {
     const [auth, setAuth] = useAuth();
     const [isChecked, setIsChecked] = useState([]);
     const [filterOrder, setFilterOrder] = useState({});
-    const {data, error, loading, removeItems} = useProducts();
-
+    const {data, error, loading, removeItems, updateData} = useProducts();
+    const [inputs, setInputs] = useState({});
 
     function toLocalTime(orderTime){
         const createdAt = new Date(orderTime);
@@ -28,6 +28,7 @@ export function MyProduct() {
         return formattedTime+" - "+formattedDate
     }
 
+    console.log(data)
     function checkBOX(index ){
         if(index != isChecked.length - 1){
             const newChecked = [...isChecked];
@@ -39,7 +40,7 @@ export function MyProduct() {
         }
     } 
 
-    function handleChange(name, value){
+    function handleFilter(name, value){
         setFilterOrder({})
         if(value==""){
 
@@ -47,6 +48,11 @@ export function MyProduct() {
             value = currentTime.toISOString();
         }
         setFilterOrder(values => ({...values, [name]: value}))
+    }
+
+    function handleChange(name, value){
+
+        setInputs(values => ({...values, [name]: value}))
     }
 
     async function removeProduct(){
@@ -60,6 +66,15 @@ export function MyProduct() {
         )
         const res = await remove(`products`,{ids:toRemove.join(',')});
         removeItems(toRemove)
+    }
+
+    async function editProduct(event,id){
+        event.preventDefault();
+        console.log({inputs})
+        const res = await put(`products/${id}`,inputs);
+        console.log({res})
+        // updateData(res.date)
+
     }
 
     useEffect(() => {
@@ -76,8 +91,8 @@ export function MyProduct() {
                     <Stack id="Wcard"direction="horizontal" gap={3}>
                         <ListGroup id="kat-sort" variant="flush">
                             <DropdownButton variant="primary" drop='end' id="dropdown-basic-button" title="Sortowanie">
-                                <Dropdown.Item name="dateOrder" onClick={(e)=>handleChange(e.target.name, -1)} >Ostatnio dodane</Dropdown.Item>
-                                <Dropdown.Item name="dateOrder" onClick={(e)=>handleChange(e.target.name, 1)} >Najstarsze</Dropdown.Item>
+                                <Dropdown.Item name="dateOrder" onClick={(e)=>handleFilter(e.target.name, -1)} >Ostatnio dodane</Dropdown.Item>
+                                <Dropdown.Item name="dateOrder" onClick={(e)=>handleFilter(e.target.name, 1)} >Najstarsze</Dropdown.Item>
                             </DropdownButton>
 
                         </ListGroup>
@@ -114,7 +129,13 @@ export function MyProduct() {
                                     <ListGroup.Item id="g3">Nazwa: {product.name}</ListGroup.Item>
                                     <ListGroup.Item id="g3">Ilość: {product.number}</ListGroup.Item>
                                     <ListGroup.Item>Cena: {product.price}</ListGroup.Item>
+                                    <ListGroup.Item>Promocja: {product.promotion>0 ?  product.promotion : "brak"}</ListGroup.Item>
                                 </ListGroup>
+                            </ListGroup>
+                            <ListGroup id="promotion" variant="flush" key={`${product.id}_${index}`}>
+                                <ListGroup.Item id="g3">{product.promotion>0 ?  "Wpisz zero aby usunąć promocje":"Dodaj promocje do produktu"}</ListGroup.Item>
+                                <Form.Control id="alignment" onChange={(e)=>handleChange(e.target.name,e.target.value)} name="promotion" type= "text" className="me-auto" placeholder={"podaj liczbe np:10 "} required/>
+                                <Button onClick={(e)=>editProduct(e,product.id)} variant="light">Zmień</Button>
                             </ListGroup>
                         </Card>
                     )
